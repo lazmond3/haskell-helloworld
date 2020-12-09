@@ -21,7 +21,7 @@ convertListToStringWithCase (a : as) =
 
 convertListToStringWithIf (a : as) =
   show a
-    ++ if length as == 0
+    ++ if null as -- length の代わりに null を使えと言われた。
       then ". finished"
       else ", " ++ convertListToStringWithIf as
 
