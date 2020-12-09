@@ -19,6 +19,7 @@ convertListToStringWithCase (a : as) =
       0 -> ". finished"
       _ -> ", " ++ convertListToStringWithCase as
 
+convertListToStringWithIf :: Show a => [a] -> [Char]
 convertListToStringWithIf (a : as) =
   show a
     ++ if null as -- length の代わりに null を使えと言われた。
