@@ -1,8 +1,8 @@
-module Lib where
+module Lib
     ( someFunc 
-) where
-someFunc :: IO ()
+    ) where
 
+someFunc :: IO ()
 
 primes = filterPrime [2..]
     where filterPrime (p:xs) = 
