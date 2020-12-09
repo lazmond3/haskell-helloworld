@@ -26,13 +26,26 @@ convertListToStringWithIf (a : as) =
       then ". finished"
       else ", " ++ convertListToStringWithIf as
 
-someFunc = do
-  take 9 primes
-    & convertListToStringWithCase
-    & (++) ("--- with case ---" ++ "\n")
-    & putStrLn
+joinString :: String -> String -> String
+joinString a b = a ++ b
 
-  take 9 primes
-    & convertListToStringWithIf
-    & (++) ("--- with if   ---" ++ "\n")
+addNewLine :: [Char] -> [Char]
+addNewLine a = a ++ "\n"
+
+addCommentLineOnTop a b = (a & addNewLine) ++ b
+
+someFunc = do
+  let comment = "--- with case ---"
+   in take 9 primes
+        & convertListToStringWithCase
+        & addCommentLineOnTop comment
+        & putStrLn
+
+  let comment = "--- with if   ---"
+   in take 9 primes
+        & convertListToStringWithIf
+        & addCommentLineOnTop comment
+        & putStrLn
+
+  joinString "test hello" "world"
     & putStrLn
