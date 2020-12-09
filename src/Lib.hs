@@ -34,6 +34,12 @@ addNewLine a = a ++ "\n"
 
 addCommentLineOnTop a b = (a & addNewLine) ++ b
 
+take9PrimseNumbersListConversionTest comment =
+  take 9 primes
+    & convertListToStringWithIf
+    & addCommentLineOnTop comment
+    & putStrLn
+
 someFunc = do
   let comment = "--- with case ---"
    in take 9 primes
@@ -46,6 +52,15 @@ someFunc = do
         & convertListToStringWithIf
         & addCommentLineOnTop comment
         & putStrLn
+
+  let groupComment = "============== to one function ============="
+   in do
+        putStrLn groupComment
+        let comment = "--- with case ---"
+         in take9PrimseNumbersListConversionTest comment
+
+        let comment = "--- with if   ---"
+         in take9PrimseNumbersListConversionTest comment
 
   joinString "test hello" "world"
     & putStrLn
