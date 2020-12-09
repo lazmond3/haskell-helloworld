@@ -12,14 +12,26 @@ primes = filterPrime [2 ..]
     filterPrime (p : xs) =
       p : filterPrime [x | x <- xs, x `mod` p /= 0]
 
-convert_list_to_string:: [Integer] -> String
-convert_list_to_string (a:as) = show a ++ 
-    case length as of
-        0 -> ". finished"
-        _ -> ", " ++ convert_list_to_string as
+convertListToStringWithCase :: [Integer] -> String
+convertListToStringWithCase (a : as) =
+  show a
+    ++ case length as of
+      0 -> ". finished"
+      _ -> ", " ++ convertListToStringWithCase as
 
+convertListToStringWithIf (a : as) =
+  show a
+    ++ if length as == 0
+      then ". finished"
+      else ", " ++ convertListToStringWithIf as
 
-someFunc = take 9 primes &
-            convert_list_to_string & 
-            -- show & 
-            putStrLn
+someFunc = do
+  take 9 primes
+    & convertListToStringWithCase
+    & (++) ("--- with case ---" ++ "\n")
+    & putStrLn
+
+  take 9 primes
+    & convertListToStringWithIf
+    & (++) ("--- with if   ---" ++ "\n")
+    & putStrLn
