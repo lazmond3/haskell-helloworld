@@ -6,7 +6,7 @@ where
 import Data.Function ((&))
 
 someFunc :: IO ()
-
+primes :: [Integer]
 primes = filterPrime [2 ..]
   where
     filterPrime (p : xs) =
