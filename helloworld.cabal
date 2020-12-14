@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 4de53320584bd753d33201d8afe09e846dd2eb44dcbe2b8176c99391627780d2
+-- hash: 5537e9471e46592276b3aefeb0e3181674105257f5e3d7264f5c6be3dd166a89
 
 name:           helloworld
 version:        0.1.0.0
@@ -29,12 +29,14 @@ library
   exposed-modules:
       Hello
       Lib
+      Random
   other-modules:
       Paths_helloworld
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+      , random
   default-language: Haskell2010
 
 executable helloworld-exe

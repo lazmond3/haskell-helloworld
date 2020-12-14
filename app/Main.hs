@@ -3,11 +3,21 @@ module Main where
 import Data.List ()
 import Hello
 import Lib
+import Random
 
 main :: IO ()
-main = do
-  someFunc
-  helloFunc
+-- do なし記法
+main =
+  nyshuffle [1 .. 9] >>= \x ->
+    print x
+
+-- 動いた！
+-- main = do
+--   x <- nyshuffle [1, 2, 3, 4]
+--   print x
+
+--   someFunc
+--   helloFunc
 
 -- main = do
 --     x <- getLine
