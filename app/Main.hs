@@ -1,10 +1,14 @@
 module Main where
 
-import Lib
 import Data.List ()
+import Hello
+import Lib
 
 main :: IO ()
-main = someFunc
+main = do
+  someFunc
+  helloFunc
+
 -- main = do
 --     x <- getLine
 --     let n = length $ filter (== 'N') x
